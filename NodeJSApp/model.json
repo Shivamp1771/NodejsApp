@@ -1,0 +1,21 @@
+g2 : {
+    FirstName: "Jesica", 
+    LastName: "Johnson",
+    UserId: "H12345",
+    DOB: "02-02-2022",
+    inputLicenseNumber: "46375893759",
+    Address: {
+        HouseNo: "26",
+        StreetName: "preston parkway",
+        City: "Cambridge",
+        Province: "Ontario",
+        PostalCode: "7987"
+    },
+    Car: {
+        Make: "Tesla",
+        Model: "TZ48",
+        Year: "2020",
+        PlatNumber: "56423643483"
+    },
+    image: "img/home-BigInt.jpg"
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('layouts/header'); -%>
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar'); -%>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('img/greetingmessage.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Kiosk for picking time slot for G and G2 drive test</h1>
+                            <span class="subheading">Admin Interface</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container">
+            <div class="my-5">
+                <h2>Welcome to Kiosk Dashboard!!</h2>
+                <h3>Appointment Page</h3>
+                <br>
+                <form action="/appointmentForm" method="POST" enctype="multipart/form-data">
+                    <% if(errors != null && errors.length >0) { %>
+                        <ul class="list-group"></ul>
+                        <% for (var i=0; i<errors.length; i++) { %>
+                            <li class="list-group-item list-group-item-danger">
+                                <%= errors[i] %></li>
+                            <% } %>
+                            </ul>
+                    <% } %>
+                <div class="form-group">
+                    <label for="AppointmentDate">Appointment Date:</label>
+                    <input type="Date" class="form-control" id="AppointmentDate" placeholder="Enter Appointment Date" name="AppointmentDate" min="2022-03-27" value="<%= AppointmentDate %>" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="appt">Select Appointment Time:</label>
+                    <input type="time" id="appt" name="appt" value="<%= appt %>">
+                </div>
+                <br>
+                <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+                </form>
+
+            </div>
+        </div>
+        <!-- Footer-->
+        <%- include('layouts/footer'); -%>
+        <%- include('layouts/scripts'); -%>
+    </body>
+</html>

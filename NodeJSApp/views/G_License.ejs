@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('layouts/header'); -%>
+    </head>
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar'); -%>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('img/greetingmessage.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Kiosk for picking time slot for G and G2 drive test</h1>
+                            <span class="subheading">Driver Interface</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container">
+            <div class="my-5">
+                <h2>G License Form</h2>
+                <form action="/gform" method="POST">
+                    <div class="form-group">
+                        <h4 id="User_error"><% if (locals.err_msg) { %> <%= err_msg %> <% } %></h4>
+                    </div>
+                    <div class="form-group">
+                        <label for="UserId">User Id</label>
+                        <input type="text" class="form-control" id="UserId" name="UserId"  placeholder="Enter User Id" value="<% if (locals.g2data) { %><% for(var i=0;i<g2data.length;i++){ %><%= g2data[i].UserId %><% } %><% } %>" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="FirstName">First Name</label>
+                        <input type="text" class="form-control" id="FirstName" placeholder="Enter First Name" name="FirstName" value="<% if (locals.g2data) { %><% for(var i=0;i<g2data.length;i++){ %><%= g2data[i].FirstName %><% } %><% } %>" readonly>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="LastName">Last Name</label>
+                        <input type="text" class="form-control" id="LastName" placeholder="Enter Last Name" name="LastName" value="<% if (locals.g2data) { %><% for(var i=0;i<g2data.length;i++){ %><%= g2data[i].LastName %><% } %><% } %>" readonly>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="DOB">Date of Birth</label>
+                        <input type="text" class="form-control" id="DOB" placeholder="Enter DOB" name="DOB" value="<% if (locals.g2data) { %><% for(var i=0;i<g2data.length;i++){ %><%= g2data[i].DOB %><% } %><% } %>" readonly>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="HouseNo">House No</label>
+                        <input type="text" class="form-control" id="HouseNo" name="HouseNo" placeholder="Enter House Number" value="<% if (locals.g2data) { %><% for(var i=0;i<g2data.length;i++){ %><%= g2data[i].HouseNo %><% } %><% } %>">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="StreetName">Street Name</label>
+                        <input type="text" class="form-control" id="StreetName" name="StreetName" placeholder="Enter Street Name" value="<% if (locals.g2data) { %><% for(var i=0;i<g2data.length;i++){ %><%= g2data[i].StreetName %><% } %><% } %>">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="City">City</label>
+                        <input type="text" class="form-control" id="City" name="City" placeholder="Enter city" value="<% if (locals.g2data) { %><% for(var i=0;i<g2data.length;i++){ %><%= g2data[i].City %><% } %><% } %>">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="Province">Province</label>
+                        <input type="text" class="form-control" id="Province" name="Province" placeholder="Enter province" value="<% if (locals.g2data) { %><% for(var i=0;i<g2data.length;i++){ %><%= g2data[i].Province %><% } %><% } %>">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="PostalCode">Postal Code</label>
+                        <input type="text" class="form-control" id="PostalCode" name="PostalCode" placeholder="Enter postal code" value="<% if (locals.g2data) { %><% for(var i=0;i<g2data.length;i++){ %><%= g2data[i].PostalCode %><% } %><% } %>">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="Make">Make</label>
+                        <input type="text" class="form-control" id="Make" name="Make" placeholder="Enter make" value="<% if (locals.g2data) { %><% for(var i=0;i<g2data.length;i++){ %><%= g2data[i].Make %><% } %><% } %>">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="Model">Model</label>
+                        <input type="text" class="form-control" id="Model" name="Model" placeholder="Enter model" value="<% if (locals.g2data) { %><% for(var i=0;i<g2data.length;i++){ %><%= g2data[i].Model %><% } %><% } %>">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="Year">Year</label>
+                        <input type="Number" class="form-control" id="Year" name="Year" placeholder="Enter year" value="<% if (locals.g2data) { %><% for(var i=0;i<g2data.length;i++){ %><%= g2data[i].Year %><% } %><% } %>">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="PlatNumber">Plat Number</label>
+                        <input type="text" class="form-control" id="PlatNumber" name="PlatNumber" placeholder="Enter plat number" value="<% if (locals.g2data) { %><% for(var i=0;i<g2data.length;i++){ %><%= g2data[i].PlatNumber %><% } %><% } %>">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="inputLicenseNumber">License Number</label>
+                        <input type="text" class="form-control" id="inputLicenseNumber" name="inputLicenseNumber" placeholder="Enter License Number" value="<% if (locals.g2data) { %><% for(var i=0;i<g2data.length;i++){ %><%= g2data[i].inputLicenseNumber %><% } %><% } %>" readonly>
+                    </div>
+                    <br>
+                   
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Footer-->
+        <%- include('layouts/footer'); -%>
+        <%- include('layouts/scripts'); -%>
+    </body>
+</html>
